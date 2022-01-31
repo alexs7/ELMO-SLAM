@@ -74,7 +74,7 @@ endif()
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
-set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS} /usr/local/lib/python2.7/dist-packages/numpy/core/include/numpy)
+set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS} /home/alex/.local/lib/python2.7/site-packages/numpy/core/include/numpy)
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -82,7 +82,7 @@ ${PROJECT_SOURCE_DIR}/include
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
 /usr/include/python2.7/
-/usr/lib/python2.7/dist-packages/numpy/core/include/numpy/
+/home/alex/.local/lib/python2.7/site-packages/numpy/core/include/numpy/
 ${Boost_INCLUDE_DIRS}
 )
 message("PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR})
@@ -146,8 +146,3 @@ target_link_libraries(mono_tum ${PROJECT_NAME})
 add_executable(mono_kitti
 Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME})
-
-add_executable(mono_carla
-Examples/Monocular/mono_carla.cc)
-target_link_libraries(mono_carla ${PROJECT_NAME})
-
