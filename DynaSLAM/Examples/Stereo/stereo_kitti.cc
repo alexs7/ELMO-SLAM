@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 
             maskLeftRCNN = MaskNet->GetSegmentation(imLeft, string(argv[4])+"/imLeft",
                     vstrImageLeft[ni].replace(vstrImageLeft[ni].begin(), vstrImageLeft[ni].end() - 10,""));
-
+            //read from file here
             maskRightRCNN = MaskNet->GetSegmentation(imRight, string(argv[4])+"/imRight",
                     vstrImageRight[ni].replace(vstrImageRight[ni].begin(), vstrImageRight[ni].end() - 10,""));
 
