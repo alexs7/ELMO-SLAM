@@ -55,8 +55,12 @@ SegmentDynObject::~SegmentDynObject(){
 }
 
 cv::Mat SegmentDynObject::GetSegmentation(cv::Mat &image,std::string dir, std::string name){
+    //std::cout << dir << std::endl;
+    //std::cout << name << std::endl;
+    //std::cout << dir+"/"+name << std::endl;
     cv::Mat seg = cv::imread(dir+"/"+name,CV_LOAD_IMAGE_UNCHANGED);
-    if(seg.empty()){
+    //std::cout << seg.empty() << std::endl;
+    if(seg.empty()){ // This will be true even with "no_save/no_file", the nested if prevents from saving not this one.
         PyObject* py_image = cvt->toNDArray(image.clone());
         assert(py_image != NULL);
         PyObject* py_mask_image = PyObject_CallMethod(this->net, const_cast<char*>(this->get_dyn_seg.c_str()),"(O)",py_image);
@@ -74,11 +78,21 @@ cv::Mat SegmentDynObject::GetSegmentation(cv::Mat &image,std::string dir, std::s
                     mkdir(str.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
                 }
             }
-            cv::imwrite(dir+"/"+name,seg);
+            cv::imwrite(dir+"/"+name,seg );
+//            cv::imwrite(dir+"/"+name,seg * 255); // for black and white masks
         }
     }
     return seg;
 }
+
+cv::Mat SegmentDynObject::GetSegmentationFromFile(std::string dir, std::string name){
+    cv::Mat seg = cv::imread(dir+"/"+name,CV_LOAD_IMAGE_UNCHANGED);
+    return seg;
+}
+
+//cv::Mat SegmentDynObject::LoadImage(std::string path){
+//    cv::Mat seg = cv::imread(dir+"/"+name,CV_LOAD_IMAGE_UNCHANGED);
+//}
 
 void SegmentDynObject::ImportSettings(){
     std::string strSettingsFile = "./Examples/RGB-D/MaskSettings.yaml";

@@ -45,6 +45,7 @@ public:
 	SegmentDynObject();
         ~SegmentDynObject();
         cv::Mat GetSegmentation(cv::Mat &image, std::string dir="no_save", std::string rgb_name="no_file");
+        cv::Mat GetSegmentationFromFile( std::string dir="no_save", std::string rgb_name="no_file");
 };
 
 
