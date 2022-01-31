@@ -11,4 +11,5 @@ DynaSLAM/Thirdparty/g2o/lib/
 DynaSLAM/Vocabulary/ORBvoc.txt
 DynaSLAM/build/
 DynaSLAM/lib/
+DynaSLAM/src/python/
 
