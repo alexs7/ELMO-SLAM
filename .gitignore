@@ -1,0 +1,100 @@
+ademxapp/*~
+
+# cache dirs
+ademxapp/data/*
+ademxapp/models/*
+ademxapp/output/*
+
+# elipse
+ademxapp/.project
+ademxapp/.pydevproject
+
+# Byte-compiled / optimized / DLL files
+ademxapp/__pycache__/
+ademxapp/*.py[cod]
+ademxapp/*$py.class
+
+# C extensions
+ademxapp/*.so
+
+# Distribution / packaging
+ademxapp/.Python
+ademxapp/env/
+ademxapp/build/
+ademxapp/develop-eggs/
+ademxapp/dist/
+ademxapp/downloads/
+ademxapp/eggs/
+ademxapp/.eggs/
+ademxapp/lib/
+ademxapp/lib64/
+ademxapp/parts/
+ademxapp/sdist/
+ademxapp/var/
+ademxapp/*.egg-info/
+ademxapp/.installed.cfg
+ademxapp/*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+ademxapp/*.manifest
+ademxapp/*.spec
+
+# Installer logs
+ademxapp/pip-log.txt
+ademxapp/pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+ademxapp/htmlcov/
+ademxapp/.tox/
+ademxapp/.coverage
+ademxapp/.coverage.*
+ademxapp/.cache
+ademxapp/nosetests.xml
+ademxapp/coverage.xml
+ademxapp/*,cover
+ademxapp/.hypothesis/
+
+# Translations
+ademxapp/*.mo
+ademxapp/*.pot
+
+# Django stuff:
+ademxapp/*.log
+ademxapp/local_settings.py
+
+# Flask stuff:
+ademxapp/instance/
+ademxapp/.webassets-cache
+
+# Scrapy stuff:
+ademxapp/.scrapy
+
+# Sphinx documentation
+ademxapp/docs/_build/
+
+# PyBuilder
+ademxapp/target/
+
+# IPython Notebook
+ademxapp/.ipynb_checkpoints
+
+# pyenv
+ademxapp/.python-version
+
+# celery beat schedule file
+ademxapp/celerybeat-schedule
+
+# dotenv
+ademxapp/.env
+
+# virtualenv
+ademxapp/venv/
+ademxapp/ENV/
+
+# Spyder project settings
+ademxapp/.spyderproject
+
+# Rope project settings
+ademxapp/.ropeproject
