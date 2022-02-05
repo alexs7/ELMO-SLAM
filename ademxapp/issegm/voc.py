@@ -1,3 +1,4 @@
+
 # pylint: skip-file
 import argparse
 import cPickle
@@ -671,10 +672,32 @@ def _val_impl(args, model_specs, logger):
             pred_label = interp_preds.argmax(0)
             if dargs.id_2_label is not None:
                 pred_label = dargs.id_2_label[pred_label]
+# Inflation code DerSpiritus
+            move_list = [5, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            move_pixel = np.in1d(pred_label, move_list)
+            i_pixel = 0
+            for x_tmp in xrange(pred_label.shape[0]):
+                for y_tmp in xrange(pred_label.shape[1]):
+                    if move_pixel[i_pixel]:
+                        n_adj = 0
+                        if pred_label[np.clip(x_tmp-1, 0, pred_label.shape[0]-1), np.clip(y_tmp, 0, pred_label.shape[0]-1)] in move_list:
+                            n_adj += 1
+                        if pred_label[np.clip(x_tmp+1, 0, pred_label.shape[0]-1), np.clip(y_tmp, 0, pred_label.shape[0]-1)] in move_list:
+                            n_adj += 1
+                        if pred_label[np.clip(x_tmp, 0, pred_label.shape[0]-1), np.clip(y_tmp-1, 0, pred_label.shape[0]-1)] in move_list:
+                            n_adj += 1
+                        if pred_label[np.clip(x_tmp, 0, pred_label.shape[0]-1), np.clip(y_tmp+1, 0, pred_label.shape[0]-1)] in move_list:
+                            n_adj += 1
+                        if n_adj <= 2:
+                            x_range = np.clip(range(x_tmp-5, x_tmp+5), 0, pred_label.shape[0]-1)
+                            y_range = np.clip(range(y_tmp-5, y_tmp+5), 0, pred_label.shape[1]-1)
+                            pred_label[np.meshgrid(x_range, y_range)] = pred_label[x_tmp, y_tmp]
+                    i_pixel+=1
             
             # save predicted labels into an image
             out_path = osp.join(save_dir, '{}.png'.format(sample_name))
             im_to_save = Image.fromarray(pred_label.astype(np.uint8))
+# These two lines deals with the labelling style DerSpiritus
             if dargs.cmap is not None:
                 im_to_save.putpalette(dargs.cmap.ravel())
             im_to_save.save(out_path)
