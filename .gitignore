@@ -98,3 +98,18 @@ ademxapp/.spyderproject
 
 # Rope project settings
 ademxapp/.ropeproject
+
+DynaSLAM/.idea/
+DynaSLAM/cmake-build-debug/
+DynaSLAM/Examples/Monocular/mono_kitti
+DynaSLAM/Examples/Monocular/mono_tum
+DynaSLAM/Examples/RGB-D/rgbd_tum
+DynaSLAM/Examples/Stereo/stereo_kitti
+DynaSLAM/Thirdparty/DBoW2/build/
+DynaSLAM/Thirdparty/DBoW2/lib/
+DynaSLAM/Thirdparty/g2o/build/
+DynaSLAM/Thirdparty/g2o/lib/
+DynaSLAM/Vocabulary/ORBvoc.txt
+DynaSLAM/build/
+DynaSLAM/lib/
+DynaSLAM/src/python/
