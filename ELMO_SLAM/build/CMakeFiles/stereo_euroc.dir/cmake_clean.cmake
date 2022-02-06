@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/stereo_euroc.dir/Examples/Stereo/stereo_euroc.cc.o"
-  "../Examples/Stereo/stereo_euroc.pdb"
   "../Examples/Stereo/stereo_euroc"
+  "../Examples/Stereo/stereo_euroc.pdb"
+  "CMakeFiles/stereo_euroc.dir/Examples/Stereo/stereo_euroc.cc.o"
+  "CMakeFiles/stereo_euroc.dir/Examples/Stereo/stereo_euroc.cc.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

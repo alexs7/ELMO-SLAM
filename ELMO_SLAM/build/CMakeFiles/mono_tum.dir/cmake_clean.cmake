@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mono_tum.dir/Examples/Monocular/mono_tum.cc.o"
-  "../Examples/Monocular/mono_tum.pdb"
   "../Examples/Monocular/mono_tum"
+  "../Examples/Monocular/mono_tum.pdb"
+  "CMakeFiles/mono_tum.dir/Examples/Monocular/mono_tum.cc.o"
+  "CMakeFiles/mono_tum.dir/Examples/Monocular/mono_tum.cc.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,45 +1,32 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jack/UCL/ORB_SLAM2/src/Converter.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Converter.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Frame.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Frame.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/FrameDrawer.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/FrameDrawer.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Initializer.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Initializer.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/KeyFrame.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/KeyFrame.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/KeyFrameDatabase.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/KeyFrameDatabase.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/LocalMapping.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/LocalMapping.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/LoopClosing.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/LoopClosing.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Map.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Map.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/MapDrawer.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/MapDrawer.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/MapPoint.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/MapPoint.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/ORBextractor.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/ORBextractor.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/ORBmatcher.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/ORBmatcher.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Optimizer.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Optimizer.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/PnPsolver.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/PnPsolver.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Sim3Solver.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Sim3Solver.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/System.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/System.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Tracking.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Tracking.cc.o"
-  "/home/jack/UCL/ORB_SLAM2/src/Viewer.cc" "/home/jack/UCL/ORB_SLAM2/build/CMakeFiles/ORB_SLAM2.dir/src/Viewer.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "COMPILEDWITHC11"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../"
-  "../include"
-  "/usr/local/include/eigen3"
-  "/home/jack/UCL/Pangolin/include"
-  "/home/jack/UCL/Pangolin/build/src/include"
-  "/usr/local/include"
-  "/usr/local/include/opencv"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Converter.cc" "CMakeFiles/ORB_SLAM2.dir/src/Converter.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Converter.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Frame.cc" "CMakeFiles/ORB_SLAM2.dir/src/Frame.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Frame.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/FrameDrawer.cc" "CMakeFiles/ORB_SLAM2.dir/src/FrameDrawer.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/FrameDrawer.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Initializer.cc" "CMakeFiles/ORB_SLAM2.dir/src/Initializer.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Initializer.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/KeyFrame.cc" "CMakeFiles/ORB_SLAM2.dir/src/KeyFrame.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/KeyFrame.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/KeyFrameDatabase.cc" "CMakeFiles/ORB_SLAM2.dir/src/KeyFrameDatabase.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/KeyFrameDatabase.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/LocalMapping.cc" "CMakeFiles/ORB_SLAM2.dir/src/LocalMapping.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/LocalMapping.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/LoopClosing.cc" "CMakeFiles/ORB_SLAM2.dir/src/LoopClosing.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/LoopClosing.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Map.cc" "CMakeFiles/ORB_SLAM2.dir/src/Map.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Map.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/MapDrawer.cc" "CMakeFiles/ORB_SLAM2.dir/src/MapDrawer.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/MapDrawer.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/MapPoint.cc" "CMakeFiles/ORB_SLAM2.dir/src/MapPoint.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/MapPoint.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/ORBextractor.cc" "CMakeFiles/ORB_SLAM2.dir/src/ORBextractor.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/ORBextractor.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/ORBmatcher.cc" "CMakeFiles/ORB_SLAM2.dir/src/ORBmatcher.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/ORBmatcher.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Optimizer.cc" "CMakeFiles/ORB_SLAM2.dir/src/Optimizer.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Optimizer.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/PnPsolver.cc" "CMakeFiles/ORB_SLAM2.dir/src/PnPsolver.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/PnPsolver.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Sim3Solver.cc" "CMakeFiles/ORB_SLAM2.dir/src/Sim3Solver.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Sim3Solver.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/System.cc" "CMakeFiles/ORB_SLAM2.dir/src/System.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/System.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Tracking.cc" "CMakeFiles/ORB_SLAM2.dir/src/Tracking.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Tracking.cc.o.d"
+  "/home/alex/ELMO-SLAM/ELMO_SLAM/src/Viewer.cc" "CMakeFiles/ORB_SLAM2.dir/src/Viewer.cc.o" "gcc" "CMakeFiles/ORB_SLAM2.dir/src/Viewer.cc.o.d"
   )
 
 # Targets to which this target links.
