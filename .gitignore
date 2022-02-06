@@ -113,3 +113,17 @@ DynaSLAM/Vocabulary/ORBvoc.txt
 DynaSLAM/build/
 DynaSLAM/lib/
 DynaSLAM/src/python/
+
+ELMO_SLAM/.idea/
+ELMO_SLAM/cmake-build-debug/
+ELMO_SLAM/Examples/Monocular/mono_kitti
+ELMO_SLAM/Examples/Monocular/mono_tum
+ELMO_SLAM/Examples/RGB-D/rgbd_tum
+ELMO_SLAM/Examples/Stereo/stereo_kitti
+ELMO_SLAM/Thirdparty/DBoW2/build/
+ELMO_SLAM/Thirdparty/DBoW2/lib/
+ELMO_SLAM/Thirdparty/g2o/build/
+ELMO_SLAM/Thirdparty/g2o/lib/
+ELMO_SLAM/Vocabulary/ORBvoc.txt
+ELMO_SLAM/build/
+ELMO_SLAM/lib/
