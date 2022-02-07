@@ -112,7 +112,11 @@ DynaSLAM/Thirdparty/g2o/lib/
 DynaSLAM/Vocabulary/ORBvoc.txt
 DynaSLAM/build/
 DynaSLAM/lib/
-DynaSLAM/src/python/
+DynaSLAM/src/python/mask_rcnn_coco.h5
+DynaSLAM/src/python/*.pyc
+DynaSLAM/CameraTrajectory.txt
+DynaSLAM/masks/
+DynaSLAM/masks_python/
 
 ELMO_SLAM/.idea/
 ELMO_SLAM/cmake-build-debug/
@@ -127,3 +131,4 @@ ELMO_SLAM/Thirdparty/g2o/lib/
 ELMO_SLAM/Vocabulary/ORBvoc.txt
 ELMO_SLAM/build/
 ELMO_SLAM/lib/
+
