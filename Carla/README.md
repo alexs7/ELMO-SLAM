@@ -1,4 +1,4 @@
-# ORB-SLAM2
+# Carla Instruction
 ## Carla
 Download the package using [this list](https://github.com/carla-simulator/carla/blob/master/Docs/download.md). 
 The full carla repo is 80 GB while this package is only 6 GB. 
