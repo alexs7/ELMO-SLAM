@@ -4,6 +4,10 @@ Download the package using [this list](https://github.com/carla-simulator/carla/
 The full carla repo is 80 GB while this package is only 6 GB. 
 If we are using ROS, please download [0.9.12](https://github.com/carla-simulator/carla/releases/tag/0.9.12/). The latest is 0.9.13. 
 
+Remember to install pygame: 
+```
+pip3 install pygame
+```
 
 To launch the Carla server:
 ```
@@ -30,6 +34,8 @@ python3 generate_traffic.py
 
 ## ROS
 To have a ROS environment, clone [this repo](https://github.com/carla-simulator/ros-bridge).
+
 carla_ros_bridge has the main launch file (ego vehicle).
+
 carla_spawn_objects has the config (json) for vehicles. 
 
