@@ -14,7 +14,10 @@ To launch the Carla server:
 ./CarlaUE4.sh
 ```
 This launches the whole world, which might lag behind the computer. 
-There is an option to switch off the visualsiation of the server (running in the background and use less GPU), but I haven't figured it out. 
+In versions after 0.9.12, to launch the Carla server without the rendering of the whole map (off-screen mode): 
+```
+./CarlaUE4.sh -RenderOffScreen
+```
 
 We need the following command for the previous executible to work: 
 ```
