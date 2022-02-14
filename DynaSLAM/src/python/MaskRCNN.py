@@ -59,6 +59,8 @@ class Mask:
 							'keyboard', 'cell phone', 'microwave', 'oven', 'toaster',
 							'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors',
 							'teddy bear', 'hair drier', 'toothbrush']
+
+		print "class names size " + str(len(self.class_names))
 		print 'Initialated Mask RCNN network...'
 
 	def GetDynSeg(self,image,image2=None):
@@ -80,7 +82,7 @@ class Mask:
 		mask = np.zeros((h,w))
 		#import pdb
 		#pdb.set_trace()
-		for roi in r['rois']: # Loops through the ROI, and uses i to keep track of them, i=1 is the first roi, etc
+		for roi in r['rois']: # Loops through the ROIs, and uses i to keep track of them, i=1 is the first roi, etc
 			if self.class_names[r['class_ids'][i]] == 'person':
 				image_m = r['masks'][:,:,i]
 				mask[image_m == 1] = 1.

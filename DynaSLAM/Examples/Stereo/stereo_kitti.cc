@@ -97,14 +97,17 @@ int main(int argc, char **argv)
         if (argc == 5){
             cv::Mat maskLeftRCNN, maskRightRCNN;
 
-//            maskLeftRCNN = MaskNet->GetSegmentation(imLeft, string(argv[4])+"/imLeft",
-//                    vstrImageLeft[ni].replace(vstrImageLeft[ni].begin(), vstrImageLeft[ni].end() - 10,""));
+            // switch between these to for loading locally or not (and build again)
+            // Do not load, but will overwrite the masks in the "masks" folder provided
+            maskLeftRCNN = MaskNet->GetSegmentation(imLeft, string(argv[4])+"/imLeft",
+                    vstrImageLeft[ni].replace(vstrImageLeft[ni].begin(), vstrImageLeft[ni].end() - 10,""));
 
-            maskLeftRCNN = MaskNet->GetSegmentationFromFile(string(argv[4])+"/imLeft",vstrImageLeft[ni].replace(vstrImageLeft[ni].begin(), vstrImageLeft[ni].end() - 10,""));
-            maskRightRCNN = MaskNet->GetSegmentationFromFile(string(argv[4])+"/imRight",vstrImageRight[ni].replace(vstrImageRight[ni].begin(), vstrImageRight[ni].end() - 10,""));
+            maskRightRCNN = MaskNet->GetSegmentation(imRight, string(argv[4])+"/imRight",
+                    vstrImageRight[ni].replace(vstrImageRight[ni].begin(), vstrImageRight[ni].end() - 10,""));
 
-//            maskRightRCNN = MaskNet->GetSegmentation(imRight, string(argv[4])+"/imRight",
-//                    vstrImageRight[ni].replace(vstrImageRight[ni].begin(), vstrImageRight[ni].end() - 10,""));
+            // Load from local dir
+            //maskLeftRCNN = MaskNet->GetSegmentationFromFile(string(argv[4])+"/imLeft",vstrImageLeft[ni].replace(vstrImageLeft[ni].begin(), vstrImageLeft[ni].end() - 10,""));
+            //maskRightRCNN = MaskNet->GetSegmentationFromFile(string(argv[4])+"/imRight",vstrImageRight[ni].replace(vstrImageRight[ni].begin(), vstrImageRight[ni].end() - 10,""));
 
             cv::Mat maskLeftRCNNdil = maskLeftRCNN.clone();
             cv::dilate(maskLeftRCNN, maskLeftRCNNdil, kernel);

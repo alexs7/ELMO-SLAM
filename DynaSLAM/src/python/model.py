@@ -8,6 +8,7 @@ Written by Waleed Abdulla
 """
 
 import os
+import pdb
 import sys
 import glob
 import random
@@ -2190,6 +2191,10 @@ class MaskRCNN():
         scores = detections[:N, 5]
         masks = mrcnn_mask[np.arange(N), :, :, class_ids]
 
+        print "\n"
+        print class_ids
+        print "--"
+
         # Filter out detections with zero area. Often only happens in early
         # stages of training when the network weights are still a bit random.
         exclude_ix = np.where((boxes[:, 2] - boxes[:, 0]) * (boxes[:, 2] - boxes[:, 0]) <= 0)[0]
@@ -2219,6 +2224,8 @@ class MaskRCNN():
             full_masks.append(full_mask)
         full_masks = np.stack(full_masks, axis=-1) \
             if full_masks else np.empty((0,) + masks.shape[1:3])
+
+        print class_ids
         return boxes, class_ids, scores, full_masks
 
     def detect(self, images, verbose=0):
@@ -2245,10 +2252,12 @@ class MaskRCNN():
             log("molded_images", molded_images)
             log("image_metas", image_metas)
         # Run object detection
-        detections, mrcnn_class, mrcnn_bbox, mrcnn_mask, \
-        rois, rpn_class, rpn_bbox = \
-            self.keras_model.predict([molded_images, image_metas], verbose=0)
+        detections, mrcnn_class, mrcnn_bbox, mrcnn_mask, rois, rpn_class, rpn_bbox = self.keras_model.predict([molded_images, image_metas], verbose=0)
         # Process detections
+        if(np.unique(detections[0][:,4]).shape[0] > 2):
+            print "more than two classes detected"
+        else:
+            print "two classes detected"
         results = []
         for i, image in enumerate(images):
             final_rois, final_class_ids, final_scores, final_masks = \
