@@ -146,3 +146,7 @@ target_link_libraries(mono_tum ${PROJECT_NAME})
 add_executable(mono_kitti
 Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME})
+
+#sudo apt-get install libjsoncpp-dev
+add_executable(mono_a2d2 Examples/Monocular/mono_a2d2.cc)
+target_link_libraries(mono_a2d2 ${PROJECT_NAME} jsoncpp)
