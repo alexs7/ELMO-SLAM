@@ -1,9 +1,10 @@
 # evo 
 
 
+First, remember to install the `evo` package. The instructions are below. 
 For ELMO-SLAM paper evaluations, we are using the KITTI format, and the command for such evaluation is as follows - 
 
-1. Create a data folder
+1. Create a data folder (already created)
 ```
 mkdir data
 cd data/
