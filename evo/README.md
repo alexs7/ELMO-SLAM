@@ -1,5 +1,39 @@
 # evo 
 
+
+For ELMO-SLAM paper evaluations, we are using the KITTI format, and the command for such evaluation is as follows - 
+
+* Create a data folder
+```
+mkdir data
+cd data/
+```
+In this folder we should at least put the ground truth poses, the ELMO-SLAM estimated poses, and the DynaSLAM estimated poses. If desired, we can also compare to Orb-SLAM2, but I would recommend against it. 
+
+* Plot trajectory
+```
+evo_traj kitti kitti/KITTI_00_elmo.txt kitti/KITTI_00_dyna.txt --ref=kitti/KITTI_00_gt.txt --full_check --plot --plot_mode=xz --align_origin --correct_scale
+```
+The following options should be switched off accordingly - 
+1. `--align_origin` aligns trajectories when their initial poses are different - this is important for KITTI-360 dataset because the initial pose in KITTI-360 ground truth is not at `(0, 0 ,0)`. 
+It may not be desired for `carla` experiment, however, due to the simplicity of the trajectory. 
+(An alternative is the option `--align`, which will align the whole trajectory and potentially improve the result)
+2. `--correct_scale` tries to match the scales of different trajectories - this is needed for all monocular experiments
+
+* Measure particular metrics - Absolute Pose Error
+```
+evo_ape kitti kitti/KITTI_00_gt.txt kitti/KITTI_00_elmo.txt --align_origin --correct_scale
+evo_ape kitti kitti/KITTI_00_gt.txt kitti/KITTI_00_dyna.txt --align_origin --correct_scale
+```
+* Measure particular metrics - Relative Pose Error
+```
+evo_rpe kitti kitti/KITTI_00_gt.txt kitti/KITTI_00_elmo.txt --align_origin --correct_scale
+evo_rpe kitti kitti/KITTI_00_gt.txt kitti/KITTI_00_dyna.txt --align_origin --correct_scale
+```
+
+For better/colourful plotting options - https://github.com/MichaelGrupp/evo/wiki/Plotting
+
+
 ***Python package for the evaluation of odometry and SLAM***
 
 | Linux / macOS / Windows / ROS / ROS2 |
