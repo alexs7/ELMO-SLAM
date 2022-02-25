@@ -94,8 +94,12 @@ int main(int argc, char **argv)
         if(argc == 5)
         {
             cv::Mat maskRCNN;
-            maskRCNN = MaskNet->GetSegmentation(im,string(argv[4]),vstrImageFilenames[ni].replace(
-                        vstrImageFilenames[ni].begin(), vstrImageFilenames[ni].end()-10,""));
+            //segmented file generated online
+            //maskRCNN = MaskNet->GetSegmentation(im,string(argv[4]),vstrImageFilenames[ni].replace(vstrImageFilenames[ni].begin(), vstrImageFilenames[ni].end()-10,""));
+
+            //segmented file generated from file offline - alex
+            maskRCNN = MaskNet->GetSegmentationFromFile(string(argv[4]),vstrImageFilenames[ni].replace(vstrImageFilenames[ni].begin(), vstrImageFilenames[ni].end()-10,""));
+
             cv::Mat maskRCNNdil = maskRCNN.clone();
             cv::dilate(maskRCNN, maskRCNNdil, kernel);
             mask = mask - maskRCNN;
