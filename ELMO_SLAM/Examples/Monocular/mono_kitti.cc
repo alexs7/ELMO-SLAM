@@ -150,6 +150,9 @@ void LoadImages(const string &strPathToSequence, vector<string> &vstrImageFilena
     ifstream fTimes;
     string strPathTimeFile = strPathToSequence + "/timestamps.txt";
     fTimes.open(strPathTimeFile.c_str());
+
+    //TODO Swap timestamp loading script fitting the new KITTI-360 timestamp format.
+    https://github.com/autonomousvision/kitti360Scripts/blob/b74933bb4d358d4b8f4c371528f036be2092060c/kitti360scripts/devkits/accumuLaser/src/commons.cpp
     while(!fTimes.eof())
     {
         string s;
@@ -187,7 +190,7 @@ void LoadLabels(const string &strPathToLabel, vector<string> &vstrLabel, vector<
     for(int i=0; i<nTimes; i++)
     {
         stringstream ss;
-        ss << setfill('0') << setw(6) << i;
+        ss << setfill('0') << setw(10) << i;
         vstrLabel[i] = strPrefixLeft + ss.str() + ".png";
     }
 }
