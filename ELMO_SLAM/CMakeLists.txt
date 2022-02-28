@@ -115,3 +115,7 @@ target_link_libraries(mono_euroc ${PROJECT_NAME})
 add_executable(mono_a2d2
         Examples/Monocular/mono_a2d2.cc)
 target_link_libraries(mono_a2d2 ${PROJECT_NAME} jsoncpp)
+
+add_executable(mono_kitti360
+        Examples/Monocular/mono_kitti360.cc)
+target_link_libraries(mono_kitti360 ${PROJECT_NAME})
