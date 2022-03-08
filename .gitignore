@@ -122,6 +122,8 @@ ELMO_SLAM/.idea/
 ELMO_SLAM/cmake-build-debug/
 ELMO_SLAM/Examples/Monocular/mono_kitti
 ELMO_SLAM/Examples/Monocular/mono_tum
+ELMO_SLAM/Examples/Monocular/mono_euroc
+ELMO_SLAM/Examples/Monocular/mono_a2d2
 ELMO_SLAM/Examples/RGB-D/rgbd_tum
 ELMO_SLAM/Examples/Stereo/stereo_kitti
 ELMO_SLAM/Thirdparty/DBoW2/build/

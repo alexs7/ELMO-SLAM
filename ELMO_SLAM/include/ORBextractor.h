@@ -33,9 +33,17 @@ namespace ORB_SLAM2
 //const int IdxMove[] = {5, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 19, 21, 22};
 //const int IdxNon[] = {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 23};
 
-// Less Conservative on Non-Movable Labels
-const int IdxMove[] = {5, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};
-const int IdxNon[] = {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 23, 19, 21, 22};
+//// Less Conservative on Non-Movable Labels
+//const int IdxMove[] = {5, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};
+//const int IdxNon[] = {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 23, 19, 21, 22};
+
+//Deeplab model used trainId instead of id for label:
+//Cityscape dataset https://github.com/mcordts/cityscapesScripts/blob/master/cityscapesscripts/helpers/labels.py
+    // Less Conservative on Non-Movable Labels
+    const int IdxMove[] = {11,12, 13,14,15,16,17,18};//sky and vegetation,
+    const int IdxNon[] = {0, 1, 2, 3, 4, 6, 7, 9};
+
+
 
 class KeyPointLabeled : public cv::KeyPoint
 {
