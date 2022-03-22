@@ -21,6 +21,7 @@ for i = 1:(len-1)
         full_content(j, :) = content(i, 2:13);
     end
 end
+full_content(end, :) = content(end, 2:13);
 
 filename_out = 'poses_kitti.txt';
 file_out = fopen(filename_out, 'w');
