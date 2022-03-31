@@ -136,6 +136,16 @@ def parser() -> argparse.ArgumentParser:
                               help="reference pose file (ground truth)")
     kitti_parser.add_argument("est_file", help="estimated pose file")
 
+    kitti360_parser = sub_parsers.add_parser(
+        "kitti360", parents=[shared_parser],
+        description="{} for KITTI 360 pose files - {}".format(basic_desc, lic))
+    kitti360_parser.add_argument("ref_file",
+                              help="reference pose file (ground truth)")
+    kitti360_parser.add_argument("est_file", help="estimated pose file")
+
+
+
+
     tum_parser = sub_parsers.add_parser(
         "tum", parents=[shared_parser],
         description="{} for TUM trajectory files - {}".format(basic_desc, lic))

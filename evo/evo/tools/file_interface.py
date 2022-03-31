@@ -168,6 +168,79 @@ def read_kitti_poses_file(file_path) -> PosePath3D:
         logger.debug("Loaded {} poses from: {}".format(len(poses), file_path))
     return PosePath3D(poses_se3=poses)
 
+def read_kitti360_poses_file(file_path) -> PosePath3D:
+    """
+    parses pose file in KITTI-360 format (framenumber+first 3 rows of SE(3) matrix per line)
+    :param file_path: the trajectory file path (or file handle)
+    :return: trajectory.PosePath3D
+    """
+    # file_path="/home/ziwen/Downloads/dataset/KITTI360/data_poses_oxts/2013_05_28_drive_0007_sync/poses.txt"
+    raw_mat = csv_read_matrix(file_path, delim=" ", comment_str="#")
+    error_msg = ("KITTI-360 pose files must have 13 entries per row "
+                    "and no trailing delimiter at the end of the rows (space)")
+    print(raw_mat[0])
+    if not raw_mat or (len(raw_mat) > 0 and len(raw_mat[0]) != 13):
+        raise FileInterfaceException(error_msg)
+    try:
+        mat = np.array(raw_mat).astype(float)
+    except ValueError:
+        raise FileInterfaceException(error_msg)
+    # yapf: disable
+
+    # I'm assumng that the raw matrix containing the pose matirx for the entire trajectory 12*n matrix, 12 for pose and n for number of pose points
+    # in the trajectory
+
+    # print(raw_mat)
+
+
+    # completeing the missing trajectory
+    frame_size = len(mat)  # number of rows
+
+    #don't know what the line below does.
+    # total_frame_count = mat[0, frame_size - 1]
+
+    complete_poses=[mat[0]]
+    j=[mat[0]]
+    i = 1
+
+    # here previous is actualy the current one and current is acutally the next. The code works for now and will be refactored later.
+    for previous, current in zip(mat, mat[1:]):
+    # for r in mat:
+    #     print(current[0])
+        while i< current[0] :
+            if i==1:
+                i=i+1
+                continue
+
+            j= np.concatenate([[i],previous[1:13]])
+            # if i>7:
+            #     print(j)
+            complete_poses=np.append(complete_poses,[j],axis=0)
+            # print(j[0])
+            # print(i)
+            i=i+1
+
+        if i==1:
+            i=i+1
+            continue
+        else:
+            j=np.concatenate([[i],current[1:13]])
+            complete_poses=np.append(complete_poses, [j], axis=0)
+            i=i+1
+    # https://stackoverflow.com/questions/4002598/how-to-get-the-previous-element-when-using-a-for-loop
+    # print(complete_poses)
+
+    frame_numbers = [np.array([r[0]]) for r in complete_poses]
+    poses = [np.array([[r[1], r[2], r[3], r[4]],
+                        [r[5], r[6], r[7], r[8]],
+                        [r[9], r[10], r[11], r[12]],
+                        [0, 0, 0, 1]]) for r in complete_poses]
+
+
+    # yapf: enable
+    if not hasattr(file_path, 'read'):  # if not file handle
+        logger.debug("Loaded {} poses from: {}".format(len(poses), file_path))
+    return PosePath3D(poses_se3=poses[11:3836])
 
 def write_kitti_poses_file(file_path, traj: PosePath3D,
                            confirm_overwrite: bool = False) -> None:
@@ -365,7 +438,7 @@ def write_bag_trajectory(writer, traj: PoseTrajectory3D, topic_name: str,
 def save_res_file(zip_path, result_obj: result.Result,
                   confirm_overwrite: bool = False) -> None:
     """
-    save results to a zip file that can be deserialized with load_res_file()
+    save results to a zip file that can be deserialized with load_res_file() b
     :param zip_path: path to zip file (or file handle)
     :param result_obj: evo.core.result.Result instance
     :param confirm_overwrite: whether to require user interaction

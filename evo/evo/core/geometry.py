@@ -45,6 +45,8 @@ def umeyama_alignment(x: np.ndarray, y: np.ndarray,
     :return: r, t, c - rotation matrix, translation vector and scale factor
     """
     if x.shape != y.shape:
+        print(x.shape )
+        print(y.shape)
         raise GeometryException("data matrices must have the same shape")
 
     # m = dimension, n = nr. of data points

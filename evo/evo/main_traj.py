@@ -148,6 +148,13 @@ def parser() -> argparse.ArgumentParser:
     kitti_parser.add_argument("pose_files", help="one or multiple pose files",
                               nargs='+')
 
+    kitti360_parser = sub_parsers.add_parser(
+        "kitti360", description="%s for KITTI pose files - %s" %
+        (basic_desc, lic), parents=[shared_parser])
+    kitti360_parser.add_argument("pose_files", help="one or multiple pose files",
+                              nargs='+')
+
+
     tum_parser = sub_parsers.add_parser(
         "tum", description="%s for TUM trajectory files - %s" %
         (basic_desc, lic), parents=[shared_parser])
@@ -210,6 +217,14 @@ def load_trajectories(args):
                 pose_file)
         if args.ref:
             ref_traj = file_interface.read_kitti_poses_file(args.ref)
+    elif args.subcommand == "kitti360":
+        for pose_file in args.pose_files:
+            if pose_file == args.ref:
+                continue
+            trajectories[pose_file] = file_interface.read_kitti_poses_file(
+                pose_file)
+        if args.ref:
+            ref_traj = file_interface.read_kitti360_poses_file(args.ref)
     elif args.subcommand == "euroc":
         for csv_file in args.state_gt_csv:
             if csv_file == args.ref:
@@ -362,16 +377,18 @@ def run(args):
 
     # TODO: this is fugly, but is a quick solution for remembering each synced
     # reference when plotting pose correspondences later...
-    synced = (args.subcommand == "kitti" and ref_traj) or any(
+    synced = (args.subcommand == "kitti" and ref_traj) or (args.subcommand == "kitti360" and ref_traj) or any(
         (args.sync, args.align, args.correct_scale, args.align_origin))
     synced_refs = {}
+
     if synced:
+        print("syn")
         from evo.core import sync
         if not args.ref:
             logger.debug(SEP)
             die("Can't align or sync without a reference! (--ref)  *grunt*")
         for name, traj in trajectories.items():
-            if args.subcommand == "kitti":
+            if args.subcommand == "kitti" or "kitti360":
                 ref_traj_tmp = ref_traj
             else:
                 logger.debug(SEP)

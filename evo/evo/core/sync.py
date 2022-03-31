@@ -79,6 +79,8 @@ def associate_trajectories(
     :param snd_name: name of second trajectory for verbose/debug logging
     :return: traj_1, traj_2 (synchronized)
     """
+
+    print(type(traj_1))
     if not isinstance(traj_1, PoseTrajectory3D) \
         or not isinstance(traj_2, PoseTrajectory3D):
         raise SyncException("trajectories must be PoseTrajectory3D objects")
