@@ -39,9 +39,9 @@ void LoadLabels(const string &strPathToLabel, vector<string> &vstrLabel,
 
 int main(int argc, char **argv)
 {
-    if(argc != 5)
+    if(argc < 5)
     {
-        cerr << endl << "Usage: ./mono_kitti path_to_vocabulary path_to_settings path_to_sequence path_to_label" << endl;
+        cerr << endl << "Usage: ./mono_kitti path_to_vocabulary path_to_settings path_to_sequence path_to_label (result_file_name)" << endl;
         return 1;
     }
 
@@ -140,7 +140,13 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");    
+    if(argc == 6) {
+        SLAM.SaveKeyFrameTrajectoryTUM(argv[5]);
+    }
+    else
+    {
+        SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
+    }
 
     return 0;
 }
