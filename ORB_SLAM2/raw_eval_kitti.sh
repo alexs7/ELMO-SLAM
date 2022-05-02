@@ -2,6 +2,14 @@
 pathDatasetKITTI='/media/ziwen/T7/kitti_data_odometry_gray/sequences/' #Example, it is necesary to change it by the dataset path
 # Single Session Example
 
+#mkdir ostechnix.com-$(date +"%d-%m-%Y")
+
+uuid=$(uuidgen)
+$1
+
+for i in {}
+mkdir $1-$(date +"%d-%m-%Y")
+
 
 echo "Launching kiiti 00 with Monocular sensor"
 ./Examples/Monocular/mono_kitti Vocabulary/ORBvoc.txt Examples/Monocular/KITTI00-02.yaml "$pathDatasetKITTI"/00 2sh_raw_kitti_mono_00.txt
