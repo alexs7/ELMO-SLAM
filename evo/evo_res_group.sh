@@ -70,7 +70,7 @@ else
 fi
 
 
-
+echo $result_folder
 evo_res "$result_folder"/*.zip -p --use_filenames
 
 

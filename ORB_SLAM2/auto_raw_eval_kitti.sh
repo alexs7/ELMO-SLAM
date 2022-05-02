@@ -12,23 +12,27 @@ ARG1=${2:-default}
 
 
 
-if [ -d "$ARG1"-"$(date +"%d-%m-%Y")" ]
-then
-    echo "Directory /path/to/dir exists. skip creating"
-else
-    echo "Error: Directory does not exists, creating"
-    echo mkdir "$ARG1"-"$(date +"%d-%m-%Y")"
-    mkdir "$ARG1"-"$(date +"%d-%m-%Y")"
-fi
-
-
-
 
 #mkdir "$ARG1"-$(date +"%d-%m-%Y")
 
 for ((i=1;i<=END;i++)); do
     echo $i
     uuid=$(uuidgen)
+
+
+
+
+    if [ -d "$ARG1"-"$(date +"%d-%m-%Y")" ]
+    then
+        echo "Directory /path/to/dir exists. skip creating"
+    else
+        echo "Error: Directory does not exists, creating"
+        echo mkdir "$ARG1"-"$(date +"%d-%m-%Y")"
+        mkdir "$ARG1"-"$(date +"%d-%m-%Y")"
+    fi
+
+
+
 
     echo mkdir "$ARG1"-"$(date +"%d-%m-%Y")"/"$uuid"
     mkdir "$ARG1"-"$(date +"%d-%m-%Y")"/"$uuid"
