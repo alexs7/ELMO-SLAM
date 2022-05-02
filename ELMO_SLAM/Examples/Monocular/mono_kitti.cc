@@ -39,9 +39,9 @@ void LoadLabels(const string &strPathToLabel, vector<string> &vstrLabel,
 
 int main(int argc, char **argv)
 {
-    if(argc < 5)
+    if(argc < 4)
     {
-        cerr << endl << "Usage: ./mono_kitti path_to_vocabulary path_to_settings path_to_sequence path_to_label (result_file_name)" << endl;
+        cerr << endl << "Usage: ./mono_kitti path_to_vocabulary path_to_settings path_to_sequence (result_file_name)" << endl;
         return 1;
     }
 
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     vector<double> vTimestamps;
     LoadImages(string(argv[3]), vstrImageFilenames, vTimestamps);
     vector<string> vstrLabel;
-    LoadLabels(string(argv[4]), vstrLabel, vTimestamps);
+    LoadLabels(string(argv[3]), vstrLabel, vTimestamps);
 
     int nImages = vstrImageFilenames.size();
     int nLabels = vstrLabel.size();
@@ -140,8 +140,8 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    if(argc == 6) {
-        SLAM.SaveKeyFrameTrajectoryTUM(argv[5]);
+    if(argc == 5) {
+        SLAM.SaveKeyFrameTrajectoryTUM(argv[4]);
     }
     else
     {
