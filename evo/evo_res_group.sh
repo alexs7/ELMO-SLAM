@@ -25,7 +25,7 @@ echo "$pattern"
 
 lines=$(find "$look_up_dir" -type d -name  "$pattern" | wc -l)
 echo find "$look_up_dir" -type d -name  "$pattern"
-echo "$lines"
+#echo "$lines"
 if test "$lines" -eq 0
 then
   echo "Cannot find directory with the given keyword, check argument 1 and 2"
@@ -44,11 +44,14 @@ fi
 found_dir=$(find "$look_up_dir" -type d -name "$pattern")
 echo " $found_dir"
 lines=$(find "$look_up_dir" -name "$pattern" | wc -l)
-echo "find $lines: at $found_dir"
+echo "find $lines: at $look_up_dir"
 echo $(find "$found_dir" -name "$sequence_pattern")
 
+lines=$(find "$found_dir" -name "$sequence_pattern"| wc -l)
+echo "find $lines: at $found_dir"
 
-result_folder="$(basename $(find "$look_up_dir" -type d -name "$pattern"))"_result
+
+result_folder="$(basename $(find "$look_up_dir" -type d -name "$pattern"))"_result_"$sequence"
 echo  "$result_folder"
 
 if [ -d "$result_folder" ]
@@ -57,17 +60,19 @@ then
 else
     echo "Make directory for containign result file with name $result_folder"
     mkdir "$result_folder"
+fi
+
 
     IFS=$'\n'
-    for i in $(find "$found_dir" -name "$sequence_pattern");
+    for i in $(find "$found_dir" -name "$sequence_pattern")
     do
-#        echo "$i"
-        evo_ape tum /home/ziwen/elmo_ws/ELMO-SLAM/evo/test_set/data_odometry_poses/dataset/poses/kitt_"$sequence"_tum.txt "$i" -as --save_results "$result_folder"/$(basename $(dirname "$i"))_"$sequence"_result.zip
+        echo "$i"
+          evo_ape tum /home/ziwen/elmo_ws/ELMO-SLAM/evo/test_set/data_odometry_poses/dataset/poses/kitt_"$sequence"_tum.txt "$i" -as --save_results "$result_folder"/$(basename $(dirname "$i"))_"$sequence"_result.zip
     #     --plot  --plot_mode xz
     done
     unset IFS
 
-fi
+
 
 
 echo $result_folder
