@@ -57,7 +57,7 @@ then
 else
     echo "Make directory for containign result file with name $result_folder"
     mkdir "$result_folder"
-
+fi
     IFS=$'\n'
     for i in $(find "$found_dir" -name "$sequence_pattern");
     do
@@ -67,7 +67,7 @@ else
     done
     unset IFS
 
-fi
+
 
 
 echo $result_folder
