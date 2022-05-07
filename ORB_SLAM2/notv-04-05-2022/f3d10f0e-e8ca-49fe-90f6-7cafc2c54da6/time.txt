@@ -1,0 +1,22 @@
+Launching kiiti 00 with Monocular sensor
+503.976100230
+Launching kiiti 01 with Monocular sensor
+125.530790308
+Launching kiiti 02 with Monocular sensor
+521.599317963
+Launching kiiti 03 with Monocular sensor
+93.777987659
+Launching kiiti 04 with Monocular sensor
+36.563046498
+Launching kiiti 05 with Monocular sensor
+308.584149624
+Launching kiiti 06 with Monocular sensor
+126.926664387
+Launching kiiti 07 with Monocular sensor
+127.046544940
+Launching kiiti 08 with Monocular sensor
+450.017901141
+Launching kiiti 09 with Monocular sensor
+180.032997098
+Launching kiiti 10 with Monocular sensor
+137.493212736

@@ -42,7 +42,7 @@ for ((i=1;i<=END;i++)); do
     DIRECOTRY="$ARG1"-"$(date +"%d-%m-%Y")"/"$uuid"
     echo "$DIRECOTRY"
 
-    for j in {01..10}; do
+    for j in {00..10}; do
       echo $j
 #https://stackoverflow.com/questions/12821715/convert-string-into-integer-in-bash-script-leading-zero-number-error/12821845#12821845
       if [[ 10#$j -ge 00 ]] && [[ 10#$j -le 02 ]]
